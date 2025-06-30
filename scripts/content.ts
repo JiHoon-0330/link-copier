@@ -12,4 +12,6 @@ const handleEventListeners = new HandleEventListeners({
   mouseoverHandler: mouseOverHandler,
 });
 
-new ChromeStorage(handleEventListeners.enableEventListeners);
+new ChromeStorage(
+  handleEventListeners.enableEventListeners.bind(handleEventListeners),
+);

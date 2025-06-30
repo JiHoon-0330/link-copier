@@ -21,7 +21,7 @@ function App() {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <h1 className={styles.title}>Link Copier</h1>
       <Toggle
         label={chrome.i18n.getMessage("enabled")}

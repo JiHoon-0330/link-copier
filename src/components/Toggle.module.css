@@ -3,8 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid #f0f0f0;
+}
+.toggleContainer > * {
+  flex-shrink: 0;
 }
 
 .toggleContainer:last-child {
@@ -32,16 +36,12 @@
   background: none;
 }
 
-.toggleSwitch:focus {
-  box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.2);
-}
-
 .toggleSwitchOff {
   background-color: #e5e5ea;
 }
 
 .toggleSwitchOn {
-  background-color: #34c759;
+  background-color: #0e85f4;
 }
 
 /* 슬라이더 (원형 버튼) */
@@ -72,14 +72,5 @@
 }
 
 .toggleSwitchOn:hover {
-  background-color: #30d158;
-}
-
-/* 활성 상태 (클릭 시) */
-.toggleSwitch:active .toggleSlider {
-  transform: scale(0.95);
-}
-
-.toggleSwitchOn:active .toggleSlider {
-  transform: translateX(20px) scale(0.95);
+  background-color: #0a6bc7;
 }

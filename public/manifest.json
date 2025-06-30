@@ -18,5 +18,9 @@
       "matches": ["https://*/*", "http://*/*"]
     }
   ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
   "permissions": ["storage"]
 }

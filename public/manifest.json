@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
   "version": "0.0.1",
+  "default_locale": "en",
   "name": "Link Copier",
-  "description": "Copy link from any website",
+  "description": "__MSG_extDesc__",
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"

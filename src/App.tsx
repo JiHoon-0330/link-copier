@@ -23,7 +23,11 @@ function App() {
   return (
     <main>
       <h1 className={styles.title}>Link Copier</h1>
-      <Toggle label="Enabled" value={isOn} onChange={handleClickButton} />
+      <Toggle
+        label={chrome.i18n.getMessage("enabled")}
+        value={isOn}
+        onChange={handleClickButton}
+      />
     </main>
   );
 }

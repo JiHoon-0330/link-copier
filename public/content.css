@@ -1,0 +1,35 @@
+.link-copier-tooltip {
+  all: unset;
+  position: fixed;
+  translate: -50% -100%;
+  white-space: nowrap;
+  z-index: 2147483647;
+}
+.link-copier-tooltip-bottom {
+  translate: -50% 0;
+}
+
+.link-copier-tooltip-button,
+.link-copier-tooltip-button:focus,
+.link-copier-tooltip-button:hover,
+.link-copier-tooltip-button:active {
+  all: unset;
+  pointer-events: visible;
+  cursor: pointer;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.link-copier-tooltip-button:hover {
+  background-color: #ff1493;
+}
+
+.link-copier-tooltip-button:active {
+  background-color: #c71585;
+}

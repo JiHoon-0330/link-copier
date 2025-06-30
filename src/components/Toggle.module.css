@@ -1,0 +1,85 @@
+/* 토글 컨테이너 */
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.toggleContainer:last-child {
+  border-bottom: none;
+}
+
+.toggleLabel {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1d1d1f;
+  user-select: none;
+}
+
+/* iOS 스타일 토글 스위치 */
+.toggleSwitch {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  padding: 0;
+  background: none;
+}
+
+.toggleSwitch:focus {
+  box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.2);
+}
+
+.toggleSwitchOff {
+  background-color: #e5e5ea;
+}
+
+.toggleSwitchOn {
+  background-color: #34c759;
+}
+
+/* 슬라이더 (원형 버튼) */
+.toggleSlider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.toggleSwitchOn .toggleSlider {
+  transform: translateX(20px);
+}
+
+/* 호버 효과 */
+.toggleSwitch:hover .toggleSlider {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggleSwitchOff:hover {
+  background-color: #d1d1d6;
+}
+
+.toggleSwitchOn:hover {
+  background-color: #30d158;
+}
+
+/* 활성 상태 (클릭 시) */
+.toggleSwitch:active .toggleSlider {
+  transform: scale(0.95);
+}
+
+.toggleSwitchOn:active .toggleSlider {
+  transform: translateX(20px) scale(0.95);
+}

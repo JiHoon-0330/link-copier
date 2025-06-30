@@ -13,7 +13,9 @@
   "content_scripts": [
     {
       "js": ["content.js"],
+      "css": ["content.css"],
       "matches": ["https://*/*", "http://*/*"]
     }
-  ]
+  ],
+  "permissions": ["storage"]
 }

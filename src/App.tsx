@@ -1,7 +1,29 @@
+import { useEffect, useState } from "react";
+import styles from "./App.module.css";
+import { Toggle } from "./components/Toggle";
+
 function App() {
+  const [isOn, setIsOn] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    async function getEnabled() {
+      const result = await chrome.storage.local.get();
+      const enabled = result.enabled == null ? true : result.enabled;
+      setIsOn(enabled);
+    }
+
+    getEnabled();
+  }, []);
+
+  function handleClickButton(next: boolean) {
+    chrome.storage.local.set({ enabled: next });
+    setIsOn(next);
+  }
+
   return (
     <main>
-      <h1>Hello World</h1>
+      <h1 className={styles.title}>Link Copier</h1>
+      <Toggle label="Enabled" value={isOn} onChange={handleClickButton} />
     </main>
   );
 }

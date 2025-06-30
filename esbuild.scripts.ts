@@ -11,10 +11,11 @@ async function buildScripts(name: string, path: string) {
   console.log(`${name} compiled`);
 }
 
-await Promise.all([
-  buildScripts("content", resolve(__dirname, "scripts/content.ts")),
-  buildScripts(
-    "service-worker",
-    resolve(__dirname, "scripts/service-worker.ts"),
-  ),
-]);
+async function bundle(...arr: [name: string, path: string][]) {
+  await Promise.all(arr.map(([name, path]) => buildScripts(name, path)));
+}
+
+await bundle(
+  ["content", resolve(__dirname, "scripts/content.ts")],
+  ["service-worker", resolve(__dirname, "scripts/service-worker.ts")],
+);

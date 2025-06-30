@@ -1,8 +1,8 @@
-import { ActiveTarget } from "./active-target";
 import { ChromeStorage } from "./chrome/storage";
-import { HandleEventListeners } from "./handle-event-listeners";
-import { ClickHandler, MouseOverHandler } from "./handler";
-import { Tooltip } from "./tooltip";
+import { ActiveTarget } from "./content/active-target";
+import { HandleEventListeners } from "./content/handle-event-listeners";
+import { ClickHandler, MouseOverHandler } from "./content/handler";
+import { Tooltip } from "./content/tooltip";
 
 const activeTarget = ActiveTarget.getInstance();
 const mouseOverHandler = new MouseOverHandler(new Tooltip(), activeTarget);
@@ -12,4 +12,4 @@ const handleEventListeners = new HandleEventListeners({
   mouseoverHandler: mouseOverHandler,
 });
 
-new ChromeStorage(handleEventListeners);
+new ChromeStorage(handleEventListeners.enableEventListeners);

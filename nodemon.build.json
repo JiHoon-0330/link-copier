@@ -1,0 +1,5 @@
+{
+  "watch": ["i18n/", "scripts/", "src/", "public/"],
+  "ext": "ts,tsx,css,json,png",
+  "exec": "bun run build"
+}

@@ -1,0 +1,5 @@
+{
+  "watch": ["i18n/"],
+  "ext": "ts",
+  "exec": "bun run build:i18n"
+}

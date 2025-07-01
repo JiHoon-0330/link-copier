@@ -4,21 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc -b && vite build && bun run esbuild.scripts.ts",
+    "dev": "concurrently 'bun run build:vite:watch' 'bun run build:scripts:watch' 'bun run build:i18n:watch'",
+    "generate-locales": "bun run i18n/i18n.ts",
+    "copy-locales": "SOURCE_DIR='__locales__' DIST_DIR='dist/_locales' && mkdir -p $DIST_DIR && cp -r $SOURCE_DIR/* $DIST_DIR/",
+    "build:i18n": "bun run generate-locales && bun run copy-locales",
+    "build:i18n:watch": "nodemon --config nodemon.i18n.json",
+    "build:scripts": "bun run esbuild.scripts.ts",
+    "build:scripts:watch": "nodemon --config nodemon.scripts.json",
+    "build:vite": "vite build",
+    "build:vite:watch": "nodemon --config nodemon.vite.json",
+    "build": "bun run i18n/run-i18n-src && tsc -b && bun run build:vite && bun run build:scripts && bun run i18n/run-i18n-locales",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky"
-  },
-  "nodemonConfig": {
-    "verbose": true,
-    "watch": [
-      "scripts/",
-      "src/",
-      "public/"
-    ],
-    "ext": "ts,tsx,css,json,png",
-    "exec": "bun run build"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -36,6 +34,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.2.0",
     "esbuild": "^0.25.5",
     "globals": "^16.0.0",
     "husky": "^9.1.7",

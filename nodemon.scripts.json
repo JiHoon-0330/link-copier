@@ -1,0 +1,5 @@
+{
+  "watch": ["scripts/"],
+  "ext": "ts",
+  "exec": "bun run build:scripts"
+}

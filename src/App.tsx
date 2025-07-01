@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { t } from "./__i18n__/i18n";
 import styles from "./App.module.css";
 import { Toggle } from "./components/Toggle";
 
@@ -23,11 +24,7 @@ function App() {
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>Link Copier</h1>
-      <Toggle
-        label={chrome.i18n.getMessage("enabled")}
-        value={isOn}
-        onChange={handleClickButton}
-      />
+      <Toggle label={t("enabled")} value={isOn} onChange={handleClickButton} />
     </main>
   );
 }

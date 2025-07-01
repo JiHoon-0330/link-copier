@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "default_locale": "en",
   "name": "Link Copier",
-  "description": "__MSG_extDesc__",
+  "description": "__MSG_manifestDescription__",
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon128.png"

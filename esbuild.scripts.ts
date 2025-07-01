@@ -1,21 +1,19 @@
 import { resolve } from "node:path";
 import { build } from "esbuild";
 
-async function buildScripts(name: string, path: string) {
+async function buildScripts(path: string) {
+  const filePath = resolve(__dirname, path);
   await build({
-    entryPoints: [path],
+    entryPoints: [filePath],
     bundle: true,
     minify: true,
-    outfile: resolve(__dirname, "dist", `${name}.js`),
+    outdir: "./dist",
   });
-  console.log(`${name} compiled`);
+  console.log(`${path} compiled`);
 }
 
-async function bundle(...arr: [name: string, path: string][]) {
-  await Promise.all(arr.map(([name, path]) => buildScripts(name, path)));
+async function bundle(...pathList: string[]) {
+  await Promise.all(pathList.map((path) => buildScripts(path)));
 }
 
-await bundle(
-  ["content", resolve(__dirname, "scripts/content.ts")],
-  ["service-worker", resolve(__dirname, "scripts/service-worker.ts")],
-);
+await bundle("scripts/content.ts", "scripts/service-worker.ts");

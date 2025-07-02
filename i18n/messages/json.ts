@@ -1,19 +1,6 @@
-type Locale = "en" | "ko";
+import type { Messages } from "./type";
 
-export interface Message {
-  message: string;
-  description?: string;
-  placeholders?: {
-    [k: string]: {
-      content: string;
-      example?: string;
-    };
-  };
-}
-
-type Messages = Record<string, Record<Locale, Message>>;
-
-export const messages: Messages = {
+export const jsonMessages: Messages = {
   manifestDescription: {
     en: {
       message:
@@ -30,6 +17,22 @@ export const messages: Messages = {
     },
     ko: {
       message: "기능 활성화",
+    },
+  },
+  copy_link: {
+    en: {
+      message: "Copy Link!",
+    },
+    ko: {
+      message: "링크 복사하기",
+    },
+  },
+  copied: {
+    en: {
+      message: "Copied!",
+    },
+    ko: {
+      message: "복사됨",
     },
   },
 };

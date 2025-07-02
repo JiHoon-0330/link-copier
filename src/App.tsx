@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { t } from "./__i18n__/i18n";
+import { t } from "@/__i18n__/i18n";
 import styles from "./App.module.css";
 import { Toggle } from "./components/Toggle";
 

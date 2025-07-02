@@ -1,3 +1,4 @@
+import { t } from "@/__i18n__/i18n";
 import { CLASS_NAME, DATA_ATTR } from "./constants";
 
 abstract class TooltipChild {
@@ -8,7 +9,7 @@ export class TooltipButton extends TooltipChild {
   create(): HTMLElement {
     const button = document.createElement("button");
     button.classList.add(CLASS_NAME.TOOLTIP_BUTTON);
-    button.textContent = "Copy Link!";
+    button.textContent = t("copy_link");
     return button;
   }
 }

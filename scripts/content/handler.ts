@@ -1,3 +1,4 @@
+import { t } from "@/__i18n__/i18n";
 import type { ActiveTarget } from "./active-target";
 import { DATA_ATTR } from "./constants";
 import { Tooltip } from "./tooltip";
@@ -21,7 +22,7 @@ export class ClickHandler implements Handler {
     if (Tooltip.isTooltip(target)) {
       const activeTargetData = this.activeTarget.getData();
       if (!activeTargetData) throw new Error("No active target data");
-      target.textContent = "Copied!";
+      target.textContent = t("copied");
       navigator.clipboard.writeText(activeTargetData.targetAnchor.href);
     }
   }

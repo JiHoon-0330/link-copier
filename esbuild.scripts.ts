@@ -1,3 +1,4 @@
+import path from "node:path";
 import { build } from "esbuild";
 
 await build({
@@ -8,4 +9,7 @@ await build({
   bundle: true,
   minify: true,
   outdir: "./dist",
+  alias: {
+    "@": path.resolve(__dirname, "."),
+  },
 });

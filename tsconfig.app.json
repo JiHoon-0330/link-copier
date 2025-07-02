@@ -20,7 +20,10 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "@/__i18n__/*": ["./__i18n__/*"]
+    }
   },
-  "include": ["src", "scripts"]
+  "include": ["src", "scripts", "__i18n__"]
 }
